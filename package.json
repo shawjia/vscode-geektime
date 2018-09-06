@@ -2,7 +2,7 @@
     "name": "vscode-geektime",
     "displayName": "GeekTime",
     "description": "极客时间",
-    "version": "0.0.1",
+    "version": "1.0.1",
     "publisher": "shawjia",
     "engines": {
         "vscode": "^1.27.0"
@@ -11,14 +11,19 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.sayHello"
+        "onCommand:extension.login",
+        "onCommand:extension.products"
     ],
     "main": "./extension",
     "contributes": {
         "commands": [
             {
-                "command": "extension.sayHello",
-                "title": "Hello World"
+                "command": "extension.login",
+                "title": "Geektime: Login (登录)"
+            },
+            {
+                "command": "extension.products",
+                "title": "Geektime: Products (购买列表)"
             }
         ]
     },
@@ -26,11 +31,21 @@
         "postinstall": "node ./node_modules/vscode/bin/install",
         "test": "node ./node_modules/vscode/bin/test"
     },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/shawjia/vscode-geektime.git"
+    },
     "devDependencies": {
-        "typescript": "^2.6.1",
-        "vscode": "^1.1.21",
-        "eslint": "^4.11.0",
+        "@types/mocha": "^2.2.42",
         "@types/node": "^8.10.25",
-        "@types/mocha": "^2.2.42"
+        "eslint": "^4.11.0",
+        "eslint-config-airbnb-base": "^13.1.0",
+        "eslint-plugin-import": "^2.14.0",
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.21"
+    },
+    "dependencies": {
+        "conf": "^2.0.0",
+        "geektime": "^1.0.1"
     }
 }
